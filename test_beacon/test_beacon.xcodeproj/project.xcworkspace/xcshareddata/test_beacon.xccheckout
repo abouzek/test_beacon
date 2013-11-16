@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>0AFF7EE7-4278-4CC5-B477-30C682E8C4DC</string>
+	<string>84470487-1543-4AED-AC87-CD666B5CE6BE</string>
 	<key>IDESourceControlProjectName</key>
 	<string>test_beacon</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>04B4CCAE-C4C1-46FB-B65B-3086C80E192E</key>
-		<string>https://github.com/abouzek/test_beacon</string>
+		<key>71A46A44-B730-4008-8F7C-C4CE29E95766</key>
+		<string>ssh://github.com/abouzek/test_beacon.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>test_beacon/test_beacon.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>04B4CCAE-C4C1-46FB-B65B-3086C80E192E</key>
+		<key>71A46A44-B730-4008-8F7C-C4CE29E95766</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/abouzek/test_beacon</string>
+	<string>ssh://github.com/abouzek/test_beacon.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>04B4CCAE-C4C1-46FB-B65B-3086C80E192E</string>
+	<string>71A46A44-B730-4008-8F7C-C4CE29E95766</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>04B4CCAE-C4C1-46FB-B65B-3086C80E192E</string>
+			<string>71A46A44-B730-4008-8F7C-C4CE29E95766</string>
 			<key>IDESourceControlWCCName</key>
 			<string>test_beacon</string>
 		</dict>

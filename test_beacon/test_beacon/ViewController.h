@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <CBCentralManagerDelegate, CBPeripheralManagerDelegate>
 
 
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CBPeripheralManager *peripheralManager;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @end

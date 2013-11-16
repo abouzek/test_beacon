@@ -13,24 +13,42 @@
 @end
 
 @implementation ViewController
-@synthesize peripheralManager, centralManager;
+@synthesize peripheralManager, centralManager, distanceLabel;
+int limit = 0;
+
+NSString *identifier = @"1F6312DC-0C22-4076-9FD9-ACFA447ED45A";
+
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
+    NSArray *services = @[[CBUUID UUIDWithString:identifier]];
+    NSLog(@"central");
+    
+    [centralManager scanForPeripheralsWithServices:services options:scanOptions];}
+
+- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
+    NSDictionary *advertisingData = @{CBAdvertisementDataLocalNameKey:@"my-peripheral",
+                                      CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:identifier]]};
+    NSLog(@"peripheral");
+    [peripheralManager startAdvertising:advertisingData];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *identifier = @"1F6312DC-0C22-4076-9FD9-ACFA447ED45A";
-    peripheralManager = [[CBPeripheralManager alloc] init];
+    
+    peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSDictionary *advertisingData = @{CBAdvertisementDataLocalNameKey:@"my-peripheral",
-                                      CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:identifier]]};
+    
     
     // Start advertising over BLE
-    [peripheralManager startAdvertising:advertisingData];
-    centralManager = [[CBCentralManager alloc] init];
-    NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
-    NSArray *services = @[[CBUUID UUIDWithString:identifier]];
+//    
+//    while (centralManager.state != CBCentralManagerStatePoweredOn && peripheralManager.state != CBPeripheralManagerStatePoweredOn);
     
-    [centralManager scanForPeripheralsWithServices:services options:scanOptions];
+    
+    
+    
+    centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral
@@ -38,6 +56,11 @@
 {
     
     NSLog(@"RSSI: %d", [RSSI intValue]);
+    
+    limit++;
+    if (limit % 2 == 0) {
+        distanceLabel.text = [NSString stringWithFormat:@"%d", [RSSI intValue]];
+    }
 }
 
 //- (INDetectorRange)convertRSSItoINProximity:(NSInteger)proximity
